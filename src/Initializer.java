@@ -43,7 +43,9 @@ public class Initializer {
         {
             int value=0;
             int x=pawn.posX, y=pawn.posY;
-            if(x+1<9 && y+1<9 && y-1<9)
+            int x1=x+1;
+            int x2=x+2;
+            if(x+1<9 && y+1<9 && y-1<9 && Board[x+1][y-1]==1 || x+1<9 && y+1<9 && y-1<9 && Board[x+1][y+1]==1 )
             {
                 value+=1;
                 if(Board[x+1][y+1]==1)
@@ -61,7 +63,7 @@ public class Initializer {
                 else value=+1;
                 MinMax.put(pawn,value);
             }
-            else if(Board[x+2][y]==0 && Board[x+1][0]==0)
+            else if(Board[x+2][y]==0 && Board[x+1][y]==0)
             {
                 value+=2;
                 MinMax.put(pawn,value);
