@@ -8,8 +8,9 @@ public class Main {
         initializer.initialize();
         initializer.Board[6][1]=2;
         initializer.testAfis();
-        Pawn testPawn = initializer.WhitePawn.get(1);
-        testPawn.move(6,1,initializer.Board);
+        Pawn testPawn = initializer.WhitePawn.get(0);
+        testPawn.move(5,1,initializer.Board);
         initializer.testAfis();
+        initializer.AI(initializer.BlackPawn,initializer.Board);
     }
 }

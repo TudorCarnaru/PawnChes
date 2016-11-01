@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  * Created by tcarnaru on 11/1/2016.
@@ -31,6 +32,51 @@ public class Initializer {
                 System.out.print(Board[i][j] + " ");
             }
             System.out.println();
+        }
+    }
+
+    public void AI(ArrayList<Pawn> Pawns, int [][] Board)
+    {
+        Hashtable MinMax = new Hashtable();
+        int max =0;
+        for( Pawn pawn: Pawns)
+        {
+            int value=0;
+            int x=pawn.posX, y=pawn.posY;
+            if(x+1<9 && y+1<9 && y-1<9)
+            {
+                value+=1;
+                if(Board[x+1][y+1]==1)
+                {
+                    x=x+1;
+                    y=y+1;
+                    if(Board[x+1][y+1]==1|| Board[x+1][y-1]==1) value=0;
+                }
+                else if (Board[x+1][y-1]==1)
+                {
+                    x=x+1;
+                    y=y-1;
+                    if(Board[x+1][y+1]==1|| Board[x+1][y-1]==1) value=0;
+                }
+                else value=+1;
+                MinMax.put(pawn,value);
+            }
+            else if(Board[x+2][y]==0 && Board[x+1][0]==0)
+            {
+                value+=2;
+                MinMax.put(pawn,value);
+            }
+            else if(Board[x+1][y]==0)
+            {
+                value+=1;
+                MinMax.put(pawn,value);
+            }
+            else MinMax.put(pawn,value);
+        }
+        System.out.println(MinMax.size());
+        for(Pawn pawn : Pawns)
+        {
+            System.out.print(MinMax.get(pawn) + " ");
         }
     }
 

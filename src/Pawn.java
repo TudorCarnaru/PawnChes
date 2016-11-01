@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+
 /**
  * Created by tcarnaru on 11/1/2016.
  */
@@ -22,6 +26,7 @@ public class Pawn {
         {
             if(Board[x][y]==2)
             {
+                if(x==posX-2 && Board[x-1][y]!=0) System.out.println("Mutare incorecta 5");
                 if(x==posX-1 && y==posY+1 || x==posX-1&& y==posY-1)
                 {
                     Board[posX][posY]=0;
@@ -33,17 +38,20 @@ public class Pawn {
             }
             else if(Board[x][y]==0)
             {
-                if(y==posY)
-                {
-                    Board[posX][posY]=0;
-                    this.posY=y;
-                    this.posX=x;
-                    Board[x][y]=1;
+                if(x==posX-2 && Board[x+1][y]!=0) System.out.println("Mutare incorecta 5");
+                else {
+                    if (y == posY) {
+                        Board[posX][posY] = 0;
+                        this.posY = y;
+                        this.posX = x;
+                        Board[x][y] = 1;
+                    } else System.out.println("Mutare incorecta4");
                 }
-                else System.out.println("Mutare incorecta4");
             }
             else System.out.println("Mutare incorecta3");
 
         }
     }
+
+
 }
