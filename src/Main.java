@@ -12,5 +12,15 @@ public class Main {
         testPawn.move(5,1,initializer.Board);
         initializer.testAfis();
         initializer.AI(initializer.BlackPawn,initializer.Board);
+        initializer.testAfis();
+        initializer.AI(initializer.BlackPawn,initializer.Board);
+        initializer.testAfis();
+        initializer.AI(initializer.BlackPawn,initializer.Board);
+        initializer.testAfis();
+        initializer.AI(initializer.BlackPawn,initializer.Board);
+        initializer.testAfis();
+        initializer.AI(initializer.BlackPawn,initializer.Board);
+        initializer.testAfis();
+
     }
 }
