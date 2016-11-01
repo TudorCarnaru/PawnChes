@@ -1,3 +1,5 @@
+
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -25,10 +27,22 @@ public class Initializer {
             WhitePawn.add(newPawn);
         }
     }
+//    public void afiss()
+//    {
+//
+//        for(int i=1;i<9;i++) System.out.print(i);
+//    }
+
     public void testAfis()
     {
+        //System.out.println("Linii");
+        System.out.print("    ");
+        for(int i=1;i<9;i++) System.out.print(i+ " ");
+        System.out.println(" ");
         for( int i=1; i <9; i++) {
+            System.out.print(i + "   " );
             for (int j = 1; j < 9; j++) {
+
                 System.out.print(Board[i][j] + " ");
             }
             System.out.println();
