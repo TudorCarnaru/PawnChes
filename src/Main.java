@@ -10,7 +10,8 @@ public class Main {
         initializer.initialize();
         initializer.testAfis();
         Pawn testPawn;
-        for(int i=0;i<=10;i++)
+        int ok=0;
+        while(ok!=1)
         {
             Scanner scan = new Scanner(System.in);
             System.out.println("Select a pawn from 1-8");
@@ -36,6 +37,15 @@ public class Main {
             initializer.AI(initializer.BlackPawn,initializer.Board);
             System.out.println("PC move");
             initializer.testAfis();
+            for(int i=1;i<=8;i++)
+            {
+                if( initializer.Board[1][i]!=0 || initializer.Board[8][i]!=0)
+                {
+                    ok=1;
+                    if(initializer.Board[1][i]==1) System.out.println("Player wins!");
+                    else if(initializer.Board[8][i]==2) System.out.println("PC Master-race wins!");
+                }
+            }
         }
     }
 }

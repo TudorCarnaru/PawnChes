@@ -8,7 +8,7 @@ import java.util.Random;
  * Created by tcarnaru on 11/1/2016.
  */
 public class Initializer {
-    public int[][] Board = new int[9][9];
+    public int[][] Board = new int[10][10];
     public ArrayList<Pawn> BlackPawn = new ArrayList<Pawn>();
     public ArrayList<Pawn> WhitePawn = new ArrayList<Pawn>();
     public void initialize()
