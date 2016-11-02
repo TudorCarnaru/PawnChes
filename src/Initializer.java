@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Random;
@@ -18,8 +17,10 @@ public class Initializer {
                 Board[i][j]=0;
 
         for( int i=1;i<9;i++) {
-            Board[2][i] = 2;
-            Pawn newPawn = new Pawn(2,i,2);
+            //String v="B"+i;
+            //Board[2][i] =  Integer.parseInt(String.valueOf(v.charAt(i)));
+            Board[2][i]=8;
+            Pawn newPawn = new Pawn(2,i,i);
             BlackPawn.add(newPawn);
         }
         for( int i=1;i<9;i++) {
@@ -38,7 +39,7 @@ public class Initializer {
     {
         //System.out.println("Linii");
         System.out.print("    ");
-        for(int i=1;i<9;i++) System.out.print(i+ " ");
+        for(int i=1;i<9;i++) System.out.print(i+ "  ");
         System.out.println(" ");
         for( int i=1; i <9; i++) {
             System.out.print(i + "   " );
@@ -51,11 +52,25 @@ public class Initializer {
                     int flag= pawn.flag;
                     if(x==i && y==j)
                     {
-                        System.out.print(flag + " ");
+                        System.out.print("W" +flag + " ");
                         ok=1;
                     }
                 }
-                if(ok==0) System.out.print(Board[i][j] + " ");
+                if(ok==0) {
+                    for (Pawn pawn : BlackPawn) {
+                        int x = pawn.posX;
+                        int y = pawn.posY;
+                        int flag = pawn.flag;
+                        if (x == i && y == j) {
+                            System.out.print("B" + flag + " ");
+                            ok = 1;
+                        }
+                        //System.out.print(Board[i][j] + " ");
+
+                    }
+                }
+                if(ok==0) System.out.print(0 +"  ");
+
             }
             System.out.println();
         }
