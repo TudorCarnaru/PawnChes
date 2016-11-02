@@ -63,32 +63,46 @@ public class Initializer {
                 value+=1;
                 if(Board[x+1][y+1]==1)
                 {
-                    x=x+1;
-                    y=y+1;
-                    if(Board[x+1][y+1]==1|| Board[x+1][y-1]==1) value=0;
+                    int cx=x+1;
+                    int cy=y+1;
+                    System.out.println("It should get here");
+                    if(Board[cx+1][cy+1]==1|| Board[cx+1][cy-1]==1)
+                    {
+                        System.out.println("It shouldn't get here");
+                        value=0;
+                    }
+                    else value+=2;
                 }
                 else if (Board[x+1][y-1]==1)
                 {
-                    x=x+1;
-                    y=y-1;
-                    if(Board[x+1][y+1]==1|| Board[x+1][y-1]==1) value=0;
+                    int cx=x+1;
+                    int cy=y-1;
+                    System.out.println("Or here 1 ");
+                    if(Board[cx+1][cy+1]==1|| Board[cx+1][cy-1]==1)
+                    {
+                        System.out.println("It shouldn't get here");
+                        value=0;
+                    }
+                    else value+=2;
                 }
-                else value=+1;
                 MinMax.put(pawn,value);
             }
             else if(Board[x+2][y]==0 && Board[x+1][y]==0 &&x<4)
             {
+                System.out.println("Souldn't get here 1");
                 value+=2;
                 MinMax.put(pawn,value);
             }
             else if(Board[x+1][y]==0)
             {
+                System.out.println("Souldn't get here 2");
                 value+=1;
                 MinMax.put(pawn,value);
             }
             else MinMax.put(pawn,value);
         }
         System.out.println(MinMax.size());
+        System.out.println("We got ponders");
         for(Pawn pawn : Pawns)
         {
             System.out.print(MinMax.get(pawn) + " ");
@@ -98,6 +112,7 @@ public class Initializer {
         int randomNum = rand.nextInt((8) + 1) + 0;
         int ok = 0;
         Pawn pawnToMove = new Pawn(0,0);
+        System.out.println("It gets here");
         while(ok!=1) {
             int i = 0;
             for (Pawn pawn : Pawns) {
@@ -110,6 +125,7 @@ public class Initializer {
                 if (i > randomNum) break;
             }
         }
+        System.out.println("It gets here1");
         MoveAI(pawnToMove,Board);
     }
     public void MoveAI(Pawn pawn, int [][] Board )
@@ -124,12 +140,32 @@ public class Initializer {
                 pawn.posX=x+1;
                 pawn.posY=y+1;
                 Board[pawn.posX][pawn.posY]=2;
+                for( Pawn pawn1: WhitePawn)
+                {
+                    int a=pawn1.getPawnx();
+                    int b=pawn1.getPawny();
+                    if(a==pawn.posX && b==pawn.posY)
+                    {
+                        pawn1.posX=-1;
+                        pawn1.posY=-1;
+                    }
+                }
                 System.out.println("Ajunge2");
             }
             else if (Board[x+1][y-1]==1) {
                 Board[pawn.posX][pawn.posY]=0;
                 pawn.posX=x+1;
                 pawn.posY=y-1;
+                for( Pawn pawn1: WhitePawn)
+                {
+                    int a=pawn1.getPawnx();
+                    int b=pawn1.getPawny();
+                    if(a==pawn.posX && b==pawn.posY)
+                    {
+                        pawn1.posX=-1;
+                        pawn1.posY=-1;
+                    }
+                }
                 Board[pawn.posX][pawn.posY]=2;
                 System.out.println("Ajunge3");
             }
