@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -26,7 +27,7 @@ public class Pawn {
         if(posX==-1 || posY==-1)
         {
             System.out.println("Pionul a fost mancat");
-            return 0;
+            return 1;
         }
         if(x>posX)
         {
