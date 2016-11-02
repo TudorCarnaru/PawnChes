@@ -32,20 +32,25 @@ public class Main {
                 y = scan.nextInt();
                 z = scan.nextInt();
             }
-            System.out.println("Your move");
-            initializer.testAfis();
-            initializer.AI(initializer.BlackPawn,initializer.Board);
-            System.out.println("PC move");
-            initializer.testAfis();
-            for(int i=1;i<=8;i++)
-            {
-                if( initializer.Board[1][i]!=0 || initializer.Board[8][i]!=0)
-                {
-                    ok=1;
-                    if(initializer.Board[1][i]==1) System.out.println("Player wins!");
-                    else if(initializer.Board[8][i]==2) System.out.println("PC Master-race wins!");
+                System.out.println("Your move");
+                initializer.testAfis();
+                for (int i = 1; i <= 8; i++) {
+                if (initializer.Board[1][i] != 0 || initializer.Board[8][i] != 0) {
+                    ok = 1;
+                    if (initializer.Board[1][i] == 1) System.out.println("Player wins!");
                 }
-            }
+                }
+                if(ok!=1) {
+                    initializer.AI(initializer.BlackPawn, initializer.Board);
+                    System.out.println("PC move");
+                    initializer.testAfis();
+                    for (int i = 1; i <= 8; i++) {
+                        if (initializer.Board[1][i] != 0 || initializer.Board[8][i] != 0) {
+                            ok = 1;
+                            if (initializer.Board[8][i] == 2) System.out.println("PC Master-race wins!");
+                        }
+                    }
+                }
         }
     }
 }

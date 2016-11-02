@@ -105,7 +105,8 @@ public class Initializer {
             }
             else if(Board[x+2][y]==0 && Board[x+1][y]==0 &&x<4 )
             {
-                if(x+3<9&&y-1>0 && Board[x+3][y-1]==1)
+                if(x+2==8) value+=3;
+                else if(x+3<9&&y-1>0 && Board[x+3][y-1]==1)
                 {
                     value=0;
                 }
@@ -118,8 +119,8 @@ public class Initializer {
             }
             else if(Board[x+1][y]==0)
             {
-                System.out.println("Souldn't get here 2");
-                value+=1;
+                if(x+1==8) value+=4;
+                else value+=1;
                 MinMax.put(pawn,value);
             }
             else MinMax.put(pawn,value);
@@ -154,7 +155,13 @@ public class Initializer {
     public void MoveAI(Pawn pawn, int [][] Board )
     {
         int x=pawn.posX, y=pawn.posY;
-        if((x+1<8 && y-1>0 && Board[x+1][y-1]==1) || (x+1<8 && y+1<9 && Board[x+1][y+1]==1) )
+        if(x+1==8)
+        {
+            Board[pawn.posX][pawn.posY]=0;
+            pawn.posX=x+1;
+            Board[pawn.posX][pawn.posY]=2;
+        }
+        else if((x+1<8 && y-1>0 && Board[x+1][y-1]==1) || (x+1<8 && y+1<9 && Board[x+1][y+1]==1) )
         {
             System.out.println("Ajunge1");
             if(x+1<8 && y+1<9 && Board[x+1][y+1]==1)

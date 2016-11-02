@@ -28,6 +28,11 @@ public class Pawn {
             System.out.println("Pionul a fost mancat");
             return 0;
         }
+        if(x>posX)
+        {
+            System.out.println("Mutare incorecta");
+            return 0;
+        }
         if(x<posX-2 || y>posY+1 || y<posY-1 || x==posX || x>posX+2 )
         {
             System.out.println("Mutare incorecta1");
