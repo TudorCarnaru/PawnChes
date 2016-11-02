@@ -8,10 +8,12 @@ import java.util.Hashtable;
 public class Pawn {
     public int posX= 0;
     public int posY= 0;
-    Pawn(int x, int y)
+    public int flag= 0;
+    Pawn(int x, int y,int z)
     {
         posX=x;
         posY=y;
+        flag=z;
     }
     public int getPawnx()
     {
